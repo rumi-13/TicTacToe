@@ -1,182 +1,133 @@
-/**
- * This CSS file contains the styling for a Tic-Tac-Toe game.
- * It includes general styling for the body, headings, and containers,
- * as well as specific styling for the game board and bottom section.
- * Media queries are used to make the game responsive on different screen sizes.
- */
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* General styling */
-
-/**
- * Styles the body element.
- * Sets the font family, display, height, margin, and background color.
- */
+/* Body Styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(#1c1f2b, #0d0631, #030510);
+  color: #f1f1f1;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #0d1b2a;
+  padding: 20px;
 }
 
-/* Move heading to the top */
 
-/**
- * Styles the h1 element.
- * Sets the color and margin-bottom to move it up.
- */
+/* Heading */
 h1 {
-  color: #e0e1dd;
-  margin-bottom: 50px; /* Add more space at the bottom to move it up */
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 3em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Container styling */
-
-/**
- * Styles the container element.
- * Sets the display, justify-content, align-items, and flex-direction.
- */
+/* Game Container */
 #container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
 
-/* Game board styling */
-
-/**
- * Styles the game element.
- * Sets the display, grid-template-columns, and grid-gap.
- */
+/* Grid Layout */
 .game {
   display: grid;
   grid-template-columns: repeat(3, 120px);
-  grid-gap: 20px;
+  gap: 15px;
 }
 
-/**
- * Styles the box element.
- * Sets the width, height, font-size, text-align, vertical-align, background-color,
- * border, cursor, outline, and transition.
- */
+/* Game Buttons */
 .box {
   width: 120px;
   height: 120px;
   font-size: 2.5em;
-  text-align: center;
-  vertical-align: middle;
-  background-color: #fff;
-  border: 2px solid #000814;
-  cursor: pointer;
-  outline: none;
-  transition: background-color 0.3s;
-}
-
-/**
- * Styles the box element on hover.
- * Sets the background-color to a lighter shade.
- */
-.box:hover {
-  background-color: #c6cacd;
-}
-
-/* Bottom section styling */
-
-/**
- * Styles the bottomDet element.
- * Sets the margin-top to adjust spacing and text-align to center.
- */
-#bottomDet {
-  margin-top: 45px; /* Adjust spacing to move down */
-  text-align: center;
-}
-
-/**
- * Styles the winner-box element.
- * Sets the margin-bottom, font-size, color, and display.
- */
-#winner-box {
-  margin-bottom: 25px; /* Adjust spacing to move down */
-  font-size: 1.5em;
-  color: #eaf4f4 ;
-  display: none;
-}
-
-/**
- * Styles the reset-btn element.
- * Sets the padding, font-size, color, background-color, border, cursor, and transition.
- */
-#reset-btn {
-  padding: 10px 20px;
-  font-size: 1em;
+  background-color: #ffffff10;
   color: #fff;
-  background-color: #003049;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border: none;
+  border: 2px solid #ffffff50;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
 }
 
-/**
- * Styles the reset-btn element on hover.
- * Sets the background-color to a darker shade.
- */
+.box:hover {
+  background-color: #ffffff30;
+  transform: scale(1.05);
+}
+
+/* Bottom Details */
+#bottomDet {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#winner-box {
+  margin-bottom: 20px;
+  font-size: 1.6em;
+  font-weight: bold;
+  display: none;
+  color: #e0e0e0;
+}
+
+/* Reset Button */
+#reset-btn {
+  padding: 12px 24px;
+  font-size: 1.1em;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  border-radius: 30px;
+ 
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 #reset-btn:hover {
-  background-color: #555;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 75, 43, 0.5);
 }
 
-/* Media queries for responsiveness */
-
-/**
- * Media query for screen sizes up to 600px.
- * Adjusts the game grid and box sizes.
- */
+/* Responsive Design */
 @media (max-width: 600px) {
   .game {
-      grid-template-columns: repeat(3, 80px);
-      grid-gap: 5px;
+    grid-template-columns: repeat(3, 80px);
+    gap: 10px;
   }
 
   .box {
-      width: 80px;
-      height: 80px;
-      font-size: 1.5em;
+    width: 80px;
+    height: 80px;
+    font-size: 1.5em;
   }
 
   #reset-btn {
-      padding: 8px 16px;
-      font-size: 0.9em;
+    padding: 10px 20px;
+    font-size: 1em;
   }
 }
 
-/**
- * Media query for screen sizes up to 400px.
- * Further adjusts the game grid and box sizes.
- * Also adjusts the reset button and winner box font sizes.
- */
 @media (max-width: 400px) {
   .game {
-      grid-template-columns: repeat(3, 60px);
-      grid-gap: 5px;
+    grid-template-columns: repeat(3, 60px);
+    gap: 8px;
   }
 
   .box {
-      width: 60px;
-      height: 60px;
-      font-size: 1.2em;
+    width: 60px;
+    height: 60px;
+    font-size: 1.2em;
   }
 
   #reset-btn {
-      padding: 6px 12px;
-      font-size: 0.8em;
+    padding: 8px 16px;
+    font-size: 0.9em;
   }
 
   #winner-box {
-      font-size: 1.2em;
+    font-size: 1.3em;
   }
 }
